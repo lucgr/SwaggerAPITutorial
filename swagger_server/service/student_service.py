@@ -2,13 +2,7 @@ import os
 import tempfile
 from functools import reduce
 
-# from tinydb import TinyDB, Query
 from pymongo import MongoClient
-
-# TODO: delete
-# db_dir_path = tempfile.gettempdir()
-# db_file_path = os.path.join(db_dir_path, "students.json")
-# student_db = TinyDB(db_file_path)
 
 mongo_db_client = MongoClient("mongodb://mongo:27017")
 student_db = mongo_db_client["student_database"]
@@ -24,7 +18,7 @@ def add(student=None):
 
     doc_id = student_collection.insert_one(student.to_dict())
     # student.student_id = int(str(doc_id.inserted_id))
-    return student.student_id
+    return student.student_id, 200
 
 
 def get_by_id(student_id=None, subject=None):
@@ -33,7 +27,7 @@ def get_by_id(student_id=None, subject=None):
         return 'not found', 404
     student['student_id'] = student_id
     print(student)
-    return student
+    return student, 200
 
 
 def delete(student_id=None):
@@ -41,4 +35,4 @@ def delete(student_id=None):
     if not student:
         return 'not found', 404
     student_collection.delete_one(student)
-    return student_id
+    return student_id, 200
