@@ -111,7 +111,6 @@ components:
           type: array
           items:
             type: object
-            format: GradeRecord
       example:
           student_id: 1
           first_name: "First"
