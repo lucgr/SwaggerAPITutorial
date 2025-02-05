@@ -36,7 +36,7 @@ jobs:
       id: fail-check
       shell: bash
       env:
-        JSON_DOC: ${{ steps.run-newman.outputs.summary_full }}
+        JSON_DOC: ${{ steps.run-newman.outputs.summary }}
       run: |
         printf '%s\n' "$JSON_DOC" > summary.json
         cat summary.json
