@@ -24,7 +24,7 @@ def add(student=None):
 
     doc_id = student_collection.insert_one(student.to_dict())
     # student.student_id = int(str(doc_id.inserted_id))
-    return student
+    return student.student_id
 
 
 def get_by_id(student_id=None, subject=None):
