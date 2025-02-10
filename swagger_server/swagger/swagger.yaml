@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
-  title: Simple Inventory API
-  description: This is a simple API
+  title: Assignment API DevOps & Cloud
+  description: This is a simple student API
   contact:
-    email: you@your-company.com
+    email: lucasgether@gmail.com
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
@@ -52,16 +52,15 @@ paths:
         style: simple
         explode: false
         schema:
-          type: number
-          format: integer
+          type: string
+          format: uuid
       responses:
         "200":
           description: Successfully deleted student
           content:
             application/json:
               schema:
-                type: object
-                format: Student
+                type: string
                 x-content-type: application/json
         "400":
           description: Bad Request

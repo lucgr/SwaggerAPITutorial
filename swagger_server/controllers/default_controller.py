@@ -25,14 +25,12 @@ def delete_student(student_id):  # noqa: E501
 
     delete a single student  # noqa: E501
 
-    :param student_id: the uid
+    :param student_id: the id
     :type student_id: float
 
     :rtype: object
     """
-    if connexion.request.is_json:
-        return delete(student_id)
-    return 500, 'Couldn\'t delete student'
+    return delete(student_id)
 
 
 def get_student_by_id(student_id):  # noqa: E501
@@ -40,11 +38,9 @@ def get_student_by_id(student_id):  # noqa: E501
 
     Returns a single student # noqa: E501
 
-    :param student_id: the uid
+    :param student_id: the iid
     :type student_id: 
 
     :rtype: Student
     """
-    if connexion.request.is_json:
-        return get_by_id(student_id)
-    return 500, 'Couldn\'t get student'
+    return get_by_id(student_id)
